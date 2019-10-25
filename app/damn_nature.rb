@@ -48,22 +48,22 @@ class DamnNature
 			puts "Enter the name or abbreviation of the state you were in."
 			state = gets.chomp
 			animal_encounter(name, state)
+		elsif input == 2
+			puts "What animal do you want to learn about?"
+			name = gets.chomp
+			display_animal_info(name)
 		elsif input == 4
 			puts "Remeber to capitalize."
 			name = gets.chomp
 			puts "What animal are you giving a scientific name?"
 			scientific_name = gets.chomp
-			research_scientific_name(name, input)
+			update_scientific_name(name, input)
 		elsif input ==5
 			puts "Which animal's profile must be updated?"
 			name = gets.chomp
 			puts "Tell us what you've learned."
 			facts = gets.chomp
-			research_animal_fact(name, input)
-		elsif input == 2
-			puts "What animal do you want to learn about?"
-			name = gets.chomp
-			animal_info(name)
+			update_animal_fact(name, input)
 		end
 
 	end
@@ -103,16 +103,17 @@ class DamnNature
 	end
 
 	def display_animal_list
-		Animal.all.map {|animal| animal.name}
+		animal = Animal.all.map {|animal| animal.name}
+		puts animal.all
 	end
 
-	def research_scientific_name(name, input)
+	def update_scientific_name(name, input)
 		animal_research = Animal.find_by(name: name)
 		animal_research.update(scientific_name: input)
 		puts "An interesting name."
 	end
 
-	def research_danger_rating(name, input)
+	def update_danger_rating(name, input)
 		animal_research = Animal.find_by(name: name)
 		animal_research.update(danger_rating: input)
 		if input == 1
@@ -128,13 +129,13 @@ class DamnNature
 		end
 	end
 
-	def research_animal_fact(name, input)
+	def update_animal_fact(name, input)
 		animal_research = Animal.find_by(name: name)
 		animal_research.update(animal_fact: input)
 		puts "Fasinating. What a marvel of nature."
 	end
 
-	def research_predator(name, input)
+	def update_predator_staus(name, input)
 		animal_research = Animal.find_by(name: name)
 		animal_research.update(predator: input)
 		if input == true
@@ -154,3 +155,4 @@ class DamnNature
 		puts "FINALLY!"
 	end
 end
+
