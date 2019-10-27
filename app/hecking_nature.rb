@@ -78,7 +78,7 @@ class HeckingNature
 			puts "Which species has meet its end?"
 			name = gets.chomp
 			i_am_become_death_destroyer_of_worlds(name)
-		elsif input = 66
+		elsif input == 66
 			puts "Execute order 66."
 			the_hooved_rats_breath_their_last()
 		end
