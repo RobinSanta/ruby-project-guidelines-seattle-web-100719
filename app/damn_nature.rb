@@ -25,7 +25,7 @@ class DamnNature
 		puts ''
 		puts "Enter 4 to edit the scientific name of an animal."
 		puts ''
-		puts "Enter 5 to edit the information on an animal."
+		puts "Enter 5 to updatet the bio of an animal."
 		puts ''
 		puts "Enter 99 to remove list an animal as extint, removing them from the data base."
 		puts ''
@@ -42,23 +42,28 @@ class DamnNature
 		input = gets.chomp.to_i
 
 		if input == 1
-			puts "Remeber to capitalize."
+			puts "Remember to capitalize."
 			puts "Enter the name of the animal you encountered."
 			name = gets.chomp
 			puts "Enter the name or abbreviation of the state you were in."
 			state = gets.chomp
 			animal_encounter(name, state)
 		elsif input == 2
+			puts "Remember to capitalize."
 			puts "What animal do you want to learn about?"
 			name = gets.chomp
 			display_animal_info(name)
+		elsif input == 3
+			display_animal_list()
 		elsif input == 4
-			puts "Remeber to capitalize."
+			puts "Remember to capitalize."
+			puts "What animal is getting a new scientific name?"
 			name = gets.chomp
-			puts "What animal are you giving a scientific name?"
+			puts "What is this name?"
 			scientific_name = gets.chomp
 			update_scientific_name(name, input)
 		elsif input ==5
+			puts "Remember to capitalize."
 			puts "Which animal's profile must be updated?"
 			name = gets.chomp
 			puts "Tell us what you've learned."
@@ -97,14 +102,17 @@ class DamnNature
 		# binding.pry
 		animal = Animal.find_by(name: name)
 		puts "Name: #{animal.name}"
-		puts "Bio: #{animal.animal_fact}"
 		puts "Scientific Name: #{animal.scientific_name}"
-		puts ""
+		puts "Danger Rating: #{animal.danger_rating}"
+		puts "Bio: #{animal.animal_fact}"
+		puts "Predator Status: #{animal.predator}"
 	end
 
 	def display_animal_list
 		animal = Animal.all.map {|animal| animal.name}
-		puts animal.all
+		animal.each do |a|
+			puts a
+		end
 	end
 
 	def update_scientific_name(name, input)
