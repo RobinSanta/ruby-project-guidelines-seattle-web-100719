@@ -21,15 +21,17 @@ class DamnNature
 		puts ''
 		puts "Enter 2 to learn abount an animal."
 		puts ''
-		puts "Enter 3 Check the list of animal names."
+		puts "Enter 3 Check the list of animal names in the database."
 		puts ''
 		puts "Enter 4 to update the scientific name of an animal."
+		puts ''
+		puts "Enter 5  to update the danger rating of an animal."
 		puts ''
 		puts "Enter 6 to update the bio of an animal."
 		puts ''
 		puts "Enter 99 to remove list an animal as extint, removing them from the data base."
 		puts ''
-		puts "Enter 6 if you wish for the destruction of deer."
+		puts "Enter 100 if you wish for the destruction of deer."
 	end
 
 	def running
@@ -76,6 +78,10 @@ class DamnNature
 			puts "Tell us what you've learned."
 			facts = gets.chomp
 			update_animal_fact(name, facts)
+		elsif input == 99
+			puts "Which species has meet its end?"
+			name = gets.chomp
+			i_am_become_death_destroyer_of_worlds(name)
 		end
 
 	end
