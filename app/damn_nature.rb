@@ -23,9 +23,9 @@ class DamnNature
 		puts ''
 		puts "Enter 3 Check the list of animal names."
 		puts ''
-		puts "Enter 4 to edit the scientific name of an animal."
+		puts "Enter 4 to update the scientific name of an animal."
 		puts ''
-		puts "Enter 5 to updatet the bio of an animal."
+		puts "Enter 6 to update the bio of an animal."
 		puts ''
 		puts "Enter 99 to remove list an animal as extint, removing them from the data base."
 		puts ''
@@ -50,25 +50,32 @@ class DamnNature
 			animal_encounter(name, state)
 		elsif input == 2
 			puts "Remember to capitalize."
-			puts "What animal do you want to learn about?"
+			puts "Which animal do you want to learn about?"
 			name = gets.chomp
 			display_animal_info(name)
 		elsif input == 3
 			display_animal_list()
 		elsif input == 4
 			puts "Remember to capitalize."
-			puts "What animal is getting a new scientific name?"
+			puts "Which animal is getting a new scientific name?"
 			name = gets.chomp
 			puts "What is this name?"
 			scientific_name = gets.chomp
-			update_scientific_name(name, input)
-		elsif input ==5
+			update_scientific_name(name, scientific_name)
+		elsif input == 5
+			puts "Remember to capitalzie."
+			puts "Which animal's danger rating must be updated?"
+			name = gets.chomp
+			puts  "What is this new danger rating?"
+			num = gets.chomp
+			update_danger_rating(name, num)
+		elsif input ==6
 			puts "Remember to capitalize."
-			puts "Which animal's profile must be updated?"
+			puts "Which animal's bio must be updated?"
 			name = gets.chomp
 			puts "Tell us what you've learned."
 			facts = gets.chomp
-			update_animal_fact(name, input)
+			update_animal_fact(name, facts)
 		end
 
 	end
