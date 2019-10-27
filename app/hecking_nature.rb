@@ -4,7 +4,7 @@
 # require './config/environment'
 require 'pry'
 
-class DamnNature
+class HeckingNature
 
 	def instructions
 		puts ''
@@ -35,11 +35,7 @@ class DamnNature
 	end
 
 	def running
-		# print "Animal Name: "
-		# input1 = gets.chomp
-		# puts "State Name or State Abbreviation: "
-		# input2 = gets.chomp
-
+		
 		instructions
 		input = gets.chomp.to_i
 
@@ -175,7 +171,6 @@ class DamnNature
 
 	def the_hooved_rats_breath_their_last
 		Animal.where(name: "White-Tailed Deer").destroy_all
-		puts "Star Wars Music!"
 	end
 end
 
