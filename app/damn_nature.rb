@@ -29,9 +29,9 @@ class DamnNature
 		puts ''
 		puts "Enter 6 to update the bio of an animal."
 		puts ''
-		puts "Enter 99 to remove list an animal as extint, removing them from the data base."
+		puts "Enter 7 to remove list an animal as extint, removing them from the database."
 		puts ''
-		puts "Enter 100 if you wish for the destruction of deer."
+		puts "Enter 66 if you wish for the destruction of deer."
 	end
 
 	def running
@@ -78,10 +78,13 @@ class DamnNature
 			puts "Tell us what you've learned."
 			facts = gets.chomp
 			update_animal_fact(name, facts)
-		elsif input == 99
+		elsif input == 7
 			puts "Which species has meet its end?"
 			name = gets.chomp
 			i_am_become_death_destroyer_of_worlds(name)
+		elsif input = 66
+			puts "Execute order 66."
+			the_hooved_rats_breath_their_last()
 		end
 	end
 
@@ -171,8 +174,8 @@ class DamnNature
 	end
 
 	def the_hooved_rats_breath_their_last
-		Animal.destroy(name: "White-Tailed Deer")
-		puts "FINALLY!"
+		Animal.where(name: "White-Tailed Deer").destroy_all
+		puts "Star Wars Music!"
 	end
 end
 
