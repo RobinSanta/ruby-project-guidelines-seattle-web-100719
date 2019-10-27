@@ -29,13 +29,15 @@ class HeckingNature
 		puts ''
 		puts "Enter 6 to update the bio of an animal."
 		puts ''
-		puts "Enter 7 to remove list an animal as extint, removing them from the database."
+		puts "Enter 7 to update the predator status of an animal."
+		puts ''
+		puts "Enter 8 to remove list an animal as extint, removing them from the database."
 		puts ''
 		puts "Enter 66 if you wish for the destruction of deer."
 	end
 
 	def running
-		
+
 		instructions
 		input = gets.chomp.to_i
 
@@ -65,9 +67,9 @@ class HeckingNature
 			puts "Which animal's danger rating must be updated?"
 			name = gets.chomp
 			puts  "What is this new danger rating?"
-			num = gets.chomp
+			num = gets.chomp.to_i
 			update_danger_rating(name, num)
-		elsif input ==6
+		elsif input == 6
 			puts "Remember to capitalize."
 			puts "Which animal's bio must be updated?"
 			name = gets.chomp
@@ -75,6 +77,14 @@ class HeckingNature
 			facts = gets.chomp
 			update_animal_fact(name, facts)
 		elsif input == 7
+			puts "Remember to capitalize."
+			puts "Which animal had new eating habits discovered?"
+			name = gets.chomp
+			puts "Is this animal a predator? Write a lowercase true or false"
+			status = gets.chomp
+			update_predator_staus(name, status)
+		elsif input == 8
+			puts "Remember to capitalize."
 			puts "Which species has meet its end?"
 			name = gets.chomp
 			i_am_become_death_destroyer_of_worlds(name)
