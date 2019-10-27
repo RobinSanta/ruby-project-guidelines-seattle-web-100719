@@ -83,7 +83,6 @@ class DamnNature
 			name = gets.chomp
 			i_am_become_death_destroyer_of_worlds(name)
 		end
-
 	end
 
 	def animal_encounter(name, state)
@@ -167,7 +166,7 @@ class DamnNature
 	end
 
 	def i_am_become_death_destroyer_of_worlds(name)
-		Animal.destroy(name: name)
+		Animal.where(name: name).destroy_all
 		puts "An unfortunate turn of events."
 	end
 
